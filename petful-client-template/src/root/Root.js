@@ -1,7 +1,8 @@
 import React from 'react'
-import Adoptpage from './Adoptpage'
-import Landingpage from './Landingpage'
+import Adoptpage from './Adopt/Adoptpage'
+import Landingpage from './Landing/Landingpage'
 import './Root.css'
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
 
 function Root() {
@@ -13,7 +14,7 @@ function Root() {
             <Landingpage />
           </Route>
          
-        <Route path='/Adoptpage' component= {Adoptpage}/>
+        <Route path='/Adopt/Adoptpage' component= {Adoptpage}/>
 
 
         </Switch>

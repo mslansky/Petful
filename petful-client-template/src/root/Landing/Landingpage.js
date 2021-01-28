@@ -12,8 +12,8 @@ export default class Landingpage extends React.Component{
                   First in first out as we like to say! Our pets are in high demand as they are the fluffiest, sweetest out there. Join the queue
                   and select your pet preference. We know there is a perfect fit for you out there, so let Sunshine Pets find it for you!
                 </p>
-                    <label>Enter the Queue:</label>
-                    <input name="name" type="text" placeholder="Your Name"/>
+                    <label className="enter">Enter the Queue:</label>
+                    <input className="name" type="text" placeholder="Your Name"/>
                     <button className="start-dog">Dream dog!</button>
                     <button className="start-cat">Dream cat!</button>
                 </div>
