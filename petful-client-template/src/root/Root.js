@@ -1,22 +1,30 @@
-import React from 'react'
-import Adoptpage from './Adopt/Adoptpage'
+import React, {useState} from 'react' 
 import Landingpage from './Landing/Landingpage'
 import './Root.css'
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import AdoptPageCat from './Adopt/AdoptPageCat';
+import AdoptPageDog from './Adopt/AdoptPageDog';
 
 
 function Root() {
+const [name,setName] = useState(null)
+
   return <div className="App">
      <Router>
         <Switch>
 
         <Route exact path="/">
-            <Landingpage />
+            <Landingpage name={name} setName={setName} />
           </Route>
          
-        <Route path='/Adopt/Adoptpage' component= {Adoptpage}/>
+        <Route path='/Adopt/AdoptPageCat'>
+          <AdoptPageCat name={name} />
+          </Route> 
 
-
+        <Route path='/Adopt/AdoptPageDog'>
+          <AdoptPageDog name={name} />
+        </Route> 
+       
         </Switch>
       </Router>
   </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Landingpage.css';
+import {Link} from "react-router-dom";
 
 export default class Landingpage extends React.Component{
   render(){
@@ -13,9 +14,9 @@ export default class Landingpage extends React.Component{
                   and select your pet preference. We know there is a perfect fit for you out there, so let Sunshine Pets find it for you!
                 </p>
                     <label className="enter">Enter the Queue:</label>
-                    <input className="name" type="text" placeholder="Your Name"/>
-                    <button className="start-dog">Dream dog!</button>
-                    <button className="start-cat">Dream cat!</button>
+                    <input className="name" type="text" placeholder="Your Name" value={this.props.name} onChange={(evt) => this.props.setName(evt.target.value)}/>
+                   <Link to="/Adopt/AdoptPageDog"><button className="start-dog">Dream dog!</button></Link> 
+                    <Link to="/Adopt/AdoptPageCat"><button className="start-cat">Dream cat!</button></Link>
                 </div>
                 </div>
                 
