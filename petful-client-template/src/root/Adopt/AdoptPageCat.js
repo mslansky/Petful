@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './AdoptPage.css';
+import './Adoptpage.css';
 import {Link} from 'react-router-dom'
 import config from '../../config.js'
 
