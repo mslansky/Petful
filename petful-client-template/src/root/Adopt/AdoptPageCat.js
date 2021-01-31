@@ -9,6 +9,7 @@ const AdoptPageCat = (props) => {
   const [start, setStart] = useState(false);
   const [pet, setPet] = useState(null)
   const [queuePeople, setqueuePeople] = useState([])
+  
 
   useEffect(() => {
     if(!start){
@@ -69,9 +70,11 @@ const AdoptPageCat = (props) => {
     setPet([json])
 
   })
-}
 
   
+}
+
+
   
 
     return(
@@ -106,7 +109,7 @@ const Pet = (props) => {
   return (
     <div className="pet-box">
     {props.isToggleOn ? <p> Your Perfect Match!</p> : ""}
-    {props.isToggleOn ? <button className="adoptButton" >Adopt me!</button> : ""}
+    {props.isToggleOn ? <Link to={`/congrats`}><button className="adoptButton" >Adopt me!</button></Link> : ""}
     <p>Name: {pet.name}</p>
     <p>Age: {pet.age}</p>
     <p>Breed: {pet.breed}</p>

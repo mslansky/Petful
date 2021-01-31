@@ -4,6 +4,7 @@ import './Root.css'
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import AdoptPageCat from './Adopt/AdoptPageCat';
 import AdoptPageDog from './Adopt/AdoptPageDog';
+import Congrats from './Congrats/congrats.js';
 
 
 function Root() {
@@ -24,6 +25,10 @@ const [name,setName] = useState(null)
         <Route path='/Adopt/AdoptPageDog'>
           <AdoptPageDog name={name} />
         </Route> 
+
+        <Route path='/congrats'>
+          <Congrats/>
+          </Route> 
        
         </Switch>
       </Router>
