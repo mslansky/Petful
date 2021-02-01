@@ -13,7 +13,7 @@ const AdoptPageCat = (props) => {
 
   useEffect(() => {
     if(!start){
-      fetch(`${config.API_URL}/people/`, {method: 'POST', headers: {
+      fetch(`${config.REACT_APP_API_BASE}/people/`, {method: 'POST', headers: {
         'content-type': 'application/json'}, body: JSON.stringify({name: props.name})} ).then(res => {
         if (!res.ok)
           return res.json().then(e => Promise.reject(e))
@@ -28,7 +28,7 @@ const AdoptPageCat = (props) => {
   })
 
   const getQueue = () => {
-    fetch(`${config.API_URL}/people/`, {method:'GET', headers: {
+    fetch(`${config.REACT_APP_API_BASE}/people/`, {method:'GET', headers: {
       'content-type': 'application/json'}})
     .then(res => {
     if (!res.ok)
@@ -40,7 +40,7 @@ const AdoptPageCat = (props) => {
   })}
 
   const getNextPerson = () => {
-    fetch(`${config.API_URL}/people/next`, {method:'GET', headers: {
+    fetch(`${config.REACT_APP_API_BASE}/people/next`, {method:'GET', headers: {
       'content-type': 'application/json'}})
     .then(res => {
     if (!res.ok)
@@ -60,7 +60,7 @@ const AdoptPageCat = (props) => {
   })}
 
   const displayPet = () => {
-    fetch(`${config.API_URL}/pets/cats/next`, {method:'GET', headers: {
+    fetch(`${config.REACT_APP_API_BASE}/pets/cats/next`, {method:'GET', headers: {
       'content-type': 'application/json'}})
       .then(res => {
         if (!res.ok)
