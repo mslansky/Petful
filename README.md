@@ -1,6 +1,7 @@
 ## Welcome to Petful! 
 
 Live Link: https://petful-gray.vercel.app/
+Link to Github: https://github.com/mslansky/Petful
 
 
 My application focuses on showcasing my ability to utilize the queue data structure algorithm. 
