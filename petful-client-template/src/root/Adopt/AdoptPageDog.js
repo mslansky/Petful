@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './Adoptpage.css';
 import {Link} from 'react-router-dom'
 import config from '../../config.js'
+import CongratsTop from '../Congrats/congrats';
+import CongratsBottom from '../Congrats/congrats2.js';
 
 
 const AdoptPageDog = (props) => {
   const [adoptable, setAdoptable] = useState(false);
+  const [adopted, setAdopted] = useState(false);
   const [start, setStart] = useState(false);
-  const [pet, setPet] = useState(null)
+  const [pet, setPet] = useState(null);
+  const [prevPet, setPrevPet] = useState(null);
   const [queuePeople, setqueuePeople] = useState([])
 
   useEffect(() => {
@@ -25,6 +29,12 @@ const AdoptPageDog = (props) => {
     }
     setStart(true);
   })
+
+  useEffect(() => {
+    if(prevPet === null){
+      setPrevPet(pet);
+    }
+  }, [pet])
 
   const getQueue = () => {
     fetch(`${config.REACT_APP_API_BASE}/people/`, {method:'GET', headers: {
@@ -54,7 +64,7 @@ const AdoptPageDog = (props) => {
       displayPet();
     }else{
       displayPet();
-      setTimeout(getQueue, 3000);
+      setTimeout(getQueue, 3000); 
     }
   })}
 
@@ -67,7 +77,6 @@ const AdoptPageDog = (props) => {
         return res.json()
   }).then((json)=>{
     setPet([json])
-
   })
 }
 
@@ -83,19 +92,31 @@ const AdoptPageDog = (props) => {
                 <Link to={`/`}><button className="back">Home Page</button></Link>
                 </div>
 
-                <div className="user-queue">
-                  <h3>Please Wait in the Queue</h3>
-                  <div className="user-name">{queuePeople.map((x) => (<>{x}<br/></>))}</div>
-                </div>
+                { adopted ? <CongratsTop/> : <PeopleQueue queuePeople={queuePeople}/>}
 
                 <div className="animal">
-                  {pet ? pet.map((pet) => (<Pet pet={pet} isToggleOn={adoptable}/>)) : "" }
+                  {pet ? pet.map((pet) => (<Pet pet={pet} isToggleOn={adoptable && !adopted} onClick={() => setAdopted(true)}/>)) : "" }
                 </div>
+
+                { adopted ? <CongratsBottom/> : ""}
+
+                { adopted ? ( <div className="animal">
+                  {prevPet ? prevPet.map((pet) => (<Pet pet={pet} isToggleOn={false}/>)) : "" }
+                </div> ) : ""}
 
                 </div>
           </div>
     )
   
+}
+
+const PeopleQueue = (props) => {
+  return (
+    <div className="user-queue">
+      <h3>Please Wait in the Queue</h3>
+      <div className="user-name">{props.queuePeople.map((x) => (<>{x}<br/></>))}</div>
+    </div>
+  );
 }
 
 const Pet = (props) => {
@@ -106,7 +127,7 @@ const Pet = (props) => {
   return (
     <div className="pet-box">
     {props.isToggleOn ? <p> Your Perfect Match!</p> : ""}
-    {props.isToggleOn ? <button className="adoptButton" >Adopt me!</button> : ""}
+    {props.isToggleOn ? <button className="adoptButton" onClick={props.onClick}>Adopt me!</button> : ""}
     <p>Name: {pet.name}</p>
     <p>Age: {pet.age}</p>
     <p>Breed: {pet.breed}</p>
@@ -115,6 +136,7 @@ const Pet = (props) => {
     <p>Desc: {pet.description}</p>
     <p>Story: {pet.story}</p>
     </div>
+    
   );
 }
 

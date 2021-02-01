@@ -39,6 +39,7 @@
     text-align: center;
     font-family: 'Quicksand', sans-serif; 
     padding: 10px;
+    font-size: 20px;
   }
 
   .animal{
@@ -50,6 +51,11 @@
     text-align: center;
     font-family: 'Quicksand', sans-serif; 
     padding: 10px;
+    font-size: 20px;
+  }
+
+  .pet-box{
+    font-size: 20px;
   }
 
   .animalImg{

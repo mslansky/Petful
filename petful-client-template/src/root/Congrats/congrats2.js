@@ -1,21 +1,17 @@
+
 import React from 'react';
 import './congrats.css';
 
-const CongratsTop = (props) => {
+const CongratsBottom = (props) => {
   
     return(
       <div className="congratspage">
         <div className="congratsbox">
-        <div className="display-congrats">
-          <h1> Congrats on your new pet!</h1>
-          
-            
-          
+         <div className="else">
+            <h1>Check out who else is going to a great home:</h1>
+      
         </div>
-
     
-
-
         </div>
                 
       </div>
@@ -25,4 +21,4 @@ const CongratsTop = (props) => {
 
 
 
-export default CongratsTop;
+export default CongratsBottom;
