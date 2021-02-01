@@ -6,13 +6,13 @@ Live Link: https://petful-gray.vercel.app/
 My application focuses on showcasing my ability to utilize the queue data structure algorithm. 
 This application allows the user to join a queue and "adopt" either a dog or a cat. The cats and dogs are also in queues, and so the first one in is also the first one out.
 
-##Landing Page
+## Landing Page
 
 This introductory page allows for users to read instructions for the adoption process. 
 Then they are able to enter thier name into a queue and choose a cat or a dog. 
 
 
-##Adopt Page
+## Adopt Page
 
 After selecting which type of pet the user desires, and entering thier name on the previous page, the user is then added to a queue.
 The user will be able to see their name in the adoption queue, as other users who were first adopt thier pets.
