@@ -38,3 +38,5 @@ Node.js
 
 Link to Server-Side Code: https://github.com/mslansky/Petful-Server
 Link to Heroku Server-Side Code: https://git.heroku.com/petfulproject.git
+
+![petful](https://user-images.githubusercontent.com/62613007/108123491-8cbde980-706b-11eb-882a-320927c5e65c.png)
